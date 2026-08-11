@@ -94,12 +94,12 @@ public static class BundledDartSass
     [UnsupportedOSPlatform("windows")]
     private static void MakeExecutable(string path)
     {
+        const UnixFileMode executeMode = UnixFileMode.UserExecute | UnixFileMode.GroupExecute | UnixFileMode.OtherExecute;
+
         var mode = File.GetUnixFileMode(path);
-        File.SetUnixFileMode(
-            path,
-            mode |
-            UnixFileMode.UserExecute |
-            UnixFileMode.GroupExecute |
-            UnixFileMode.OtherExecute);
+        if ((mode & executeMode) == executeMode)
+            return;
+
+        File.SetUnixFileMode(path, mode | executeMode);
     }
 }
