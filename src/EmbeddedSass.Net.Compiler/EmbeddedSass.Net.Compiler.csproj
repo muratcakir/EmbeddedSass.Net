@@ -1,5 +1,6 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
+    <PackageId>Smartstore.EmbeddedSass.Net.Compiler</PackageId>
     <AssemblyName>EmbeddedSass.Net.Compiler</AssemblyName>
     <RootNamespace>EmbeddedSass.Compiler</RootNamespace>
     <Description>Bundled Dart Sass compilers for EmbeddedSass.Net on Windows, macOS, and Linux.</Description>

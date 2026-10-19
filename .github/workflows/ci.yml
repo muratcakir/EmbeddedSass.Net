@@ -41,9 +41,7 @@ jobs:
         run: |
           projects=(
             src/EmbeddedSass.Net/EmbeddedSass.Net.csproj
-            src/EmbeddedSass.Net.DependencyInjection/EmbeddedSass.Net.DependencyInjection.csproj
             src/EmbeddedSass.Net.Compiler/EmbeddedSass.Net.Compiler.csproj
-            src/EmbeddedSass.Net.MsBuild/EmbeddedSass.Net.MsBuild.csproj
           )
 
           for project in "${projects[@]}"; do
@@ -117,7 +115,7 @@ jobs:
             exit 1
           fi
 
-          dotnet nuget push "artifacts/packages/*.nupkg" \
+          dotnet nuget push "artifacts/packages/Smartstore.EmbeddedSass.Net*.nupkg" \
             --source https://api.nuget.org/v3/index.json \
             --api-key "$NUGET_API_KEY" \
             --symbol-source https://api.nuget.org/v3/index.json \

@@ -1,8 +1,22 @@
-# EmbeddedSass.Net
+# Smartstore EmbeddedSass.Net
 
-[![CI](https://github.com/gumbarros/EmbeddedSass.Net/actions/workflows/ci.yml/badge.svg)](https://github.com/gumbarros/EmbeddedSass.Net/actions/workflows/ci.yml)
-[![NuGet](https://img.shields.io/nuget/v/EmbeddedSass.Net.svg)](https://www.nuget.org/packages/EmbeddedSass.Net)
-[![NuGet downloads](https://img.shields.io/nuget/dt/EmbeddedSass.Net.svg)](https://www.nuget.org/packages/EmbeddedSass.Net)
+## Smartstore fork
+
+This repository is Smartstore's fork of [EmbeddedSass.Net](https://github.com/gumbarros/EmbeddedSass.Net).
+We maintain this fork to ship a fix for a race condition in callback ID reuse without waiting for an upstream release.
+The Dart Sass compiler can reuse an ID as soon as it receives a callback response, before the asynchronous send operation has completed in the .NET host.
+Previously, the host could still consider that ID active and reject the next callback, failing the compilation.
+The fix releases the callback ID before sending the response and prevents completion of the previous send from affecting a newer callback with the same ID.
+
+Our packages are **Smartstore.EmbeddedSass.Net** and **Smartstore.EmbeddedSass.Net.Compiler**.
+Namespaces and assembly names remain unchanged. Replace the corresponding upstream packages rather than installing both distributions together.
+See the [NuGet package README](README.nuget.md) for installation instructions.
+The remaining documentation below describes the upstream API, including optional packages that are not published by this fork.
+Original attribution, the MIT license, and third-party notices are preserved.
+
+[![CI](https://github.com/muratcakir/EmbeddedSass.Net/actions/workflows/ci.yml/badge.svg)](https://github.com/muratcakir/EmbeddedSass.Net/actions/workflows/ci.yml)
+[![NuGet](https://img.shields.io/nuget/v/Smartstore.EmbeddedSass.Net.svg)](https://www.nuget.org/packages/Smartstore.EmbeddedSass.Net)
+[![NuGet downloads](https://img.shields.io/nuget/dt/Smartstore.EmbeddedSass.Net.svg)](https://www.nuget.org/packages/Smartstore.EmbeddedSass.Net)
 [![License](https://img.shields.io/github/license/gumbarros/EmbeddedSass.Net.svg)](LICENSE)
 
 EmbeddedSass.Net is a .NET implementation for the [Embedded Sass Protocol](https://github.com/sass/sass/blob/df76115b586b048f161a7545ae5d0557b99e2a28/spec/embedded-protocol.md#the-embedded-sass-protocol).

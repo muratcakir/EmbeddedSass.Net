@@ -1,5 +1,6 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
+    <PackageId>Smartstore.EmbeddedSass.Net</PackageId>
     <AssemblyName>EmbeddedSass.Net</AssemblyName>
     <RootNamespace>EmbeddedSass</RootNamespace>
     <Description>Asynchronous .NET host for the Embedded Sass Protocol.</Description>
